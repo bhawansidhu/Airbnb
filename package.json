@@ -17,8 +17,9 @@
     "url": "https://github.com/bhawansidhu/Assignment-1-WDDM120--AirBnB-/issues"
   },
   "homepage": "https://github.com/bhawansidhu/Assignment-1-WDDM120--AirBnB-#readme",
-  "description": "",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

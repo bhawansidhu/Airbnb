@@ -21,7 +21,7 @@ app.get('/register', function (req, res) {
   })
 })
 
-app.get('/explore', function (req, res) {
+app.get('/RoomList', function (req, res) {
   const places = [];
   places.push(
     {

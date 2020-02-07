@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Airbnb- Creation of Airbnb website by using Node Js and express handlebars.">
+    <meta name="author" content="Bhawanpret Kaur Sidhu">
+    <script src="https://kit.fontawesome.com/70195ad3d9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <header>
+        <div class="part1">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="/public/image/logo.png" alt="Airbnb Logo"
+                        style="width: 120px;  height: 120px;  background-position: center;  background-repeat: no-repeat;">
+                </div>
+                <ul>
+                    <li><a href="#trip boards">Trip Board</a></li>
+                    <li><a href="#About us">About Us</a></li>
+                    <li><a href="#help"> Help</a></li>
+                    <li><a href="#Feedback">Feedback</a></li>
+                </ul>
+            </div>
+
+            <div class="part2">
+                <ul>
+                    <li><a href="#registration" class="box2">Registration</a></li>
+                    <li><a href="#LogIn" class="box2">Log In</a></li>
+                    <li><a href="#Booking" class="box2">Book your rent Here</a></li>
+                    <li><a href="#Price" class="box2">Price</a></li>
+                    <li><a href="#work trip" class="box2">Work Trip</a></li>
+                    <li><a href="#location" class="box2">Location</a></li>
+                    <li><a href="#location" class="box2">Explore</a></li>
+                    <li><a href="# more Filters" class="box2">More Filters</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+
+    <footer>
+        <div class="policy">
+            <ul>
+                <li><a href="#trip boards">Terms and Services</a></li>
+                <li><a href="#About us">Privacy Policies</a></li>
+            </ul>
+        </div>
+
+        <div class="icons">
+             <i id="twitter" class="fab fa-twitter"></i>
+            <i id="linkedin" class="fab fa-linkedin"></i>
+            <i id="fb" class="fab fa-facebook-f"></i>
+            <i id="insta" class="fab fa-instagram"></i>
+           
+        </div>
+        <p> &copy; 2020 Airbnb, All rights reserved</p>
+
+    </footer>
+</body>
+
+</html>

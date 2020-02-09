@@ -40,7 +40,7 @@
     background-color: rgb(163, 4, 105) ;
     border: 0.1rem solid rgb(210, 218, 221) ;
     border-radius: 0.3em;
-    padding: 0.7em 0.7em 0.7em 0.7em;
+    padding: 0.7em 0.3em 0.7em 0.3em;
     margin: 0 8em 0 8em;
   }
   .image-heading .button a:hover{
@@ -78,14 +78,7 @@
    padding-left: 14em;
   }
 
-  /*.photos{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 0.2rem;
-    grid-row-gap: 0.2rem;
-    padding: 0 4em;  
-}
-*/
+
 
 
 
@@ -93,7 +86,7 @@
 
 /* css part of Registrtion hndlebars*/
 
-body{
+bodys{
     margin: 2em 0 2em 0;
     padding : 0;
       
@@ -105,12 +98,13 @@ h3{
     padding: 15px;
 }
 .form{
-    margin-left: 30rem;
+      margin-left: 30rem;
 }
 
 #register{
-    background: rgb(121, 13, 76);
+    background: rgba(121, 13, 76,0.8);
     width: 500px;
+    height: 65s0px;
     color: white;
     font-size: 1.2em;
     padding: 2em 1em 2em 2em;
@@ -135,6 +129,6 @@ h3{
     border:none;
     border-radius: 0.3em;
     outline:0;
-    margin: 1em 1em 1em 6em;
+    margin: 1em 1em 1em 7em;
 
 }

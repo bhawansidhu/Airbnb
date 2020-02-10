@@ -1,11 +1,26 @@
+body{
+  background-color:rgb(236, 238, 241);
+}
+
+
 
 /* css part of Roomlist handlebars*/
 
 .top{
-    margin-top: 2rem;
-    margin-left: 12em;
-   padding: 0.5rem 0 1em 1em;
-   color: rgb(128, 12, 85);
+  margin-top: 2rem;
+  margin-left: 12em;
+ padding: 0.5rem 0 1em 1em;
+ color: rgb(128, 12, 85);
+}
+
+.main-heading{
+    margin: 0;
+   padding: 0;
+   width: 100%;
+   height : 17vh;
+   background-color:rgb(236, 238, 241);
+   border-top: 0.1rem solid  rgb(217, 222, 228); 
+
   }
    
   .photos{
@@ -96,9 +111,6 @@ bodys{
 h3{
     text-align: center;
     padding: 15px;
-}
-.form{
-      margin-left: 30rem;
 }
 
 #register{
@@ -370,10 +382,24 @@ text-decoration: none;
 
 .form input[type="date" i],.form input[type=text],.form input[type=password]{
   padding: 0.6em 12em 0.6em 0.6em;
-
+  outline: none;
   color:rgb(107, 100, 100);
   font-size: 0.7em;
+}
+  
 
-  outline: none;
+
+.heading{
+  margin: 2rem 0 0 5rem;
+  color: rgb(141, 35, 93);
 }
 
+
+.more-cities{
+     display: grid;
+    grid-template-columns: 1fr 1fr  1fr;
+    padding: 0 4em; 
+    grid-column-gap: 0.3rem;
+    grid-row-gap: 0.3rem;
+     
+}

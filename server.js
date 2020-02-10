@@ -12,15 +12,15 @@ app.use(express.static('public'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.get('/', function (req, res) {
-  res.render("homepage", {
+app.get("/",(req, res) =>{
+  res.render("home", {
     title: "Home",
     headingInfo: "HOME PAGE"
   })
 });
 
-app.get('/register', function (req, res) {
-  res.render("register", {
+app.get("/register",(req, res) =>{
+  res.render("Registration", {
     title: "User Registration",
     headingInfo: "register now",
   })
@@ -29,7 +29,7 @@ app.get('/register', function (req, res) {
 
 app.get("/room-listing",(req,res)=>{
 
-  res.render("roomListing",{
+  res.render("RoomList",{
       title: "Room Lsting",
       headingInfo : "Room Lsting Page",
   })

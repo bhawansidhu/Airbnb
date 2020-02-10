@@ -104,7 +104,7 @@ h3{
 #register{
     background: rgba(121, 13, 76,0.8);
     width: 500px;
-    height: 65s0px;
+    height: 650px;
     color: white;
     font-size: 1.2em;
     padding: 2em 1em 2em 2em;
@@ -132,3 +132,248 @@ h3{
     margin: 1em 1em 1em 7em;
 
 }
+/* home habdlebars */
+
+html {
+  margin: 0;
+  padding:0;
+  
+}
+
+body {
+
+ font-family: "Roboto",Helvetica, serif,sans-serif;
+ margin: 0;
+}
+
+.fas{
+ color: rgb(117, 24, 83);
+}
+
+.far{
+ color: rgb(117, 24, 83);
+}
+
+.logo{
+ top: 1em;
+ text-align: left;
+  
+}
+.navbar{
+ text-align: right;
+ margin-right: 3em;
+}
+
+.navbar a{
+color: rgb(117, 24, 83);
+ font-size: 1.5rem;
+ font-weight: bold ;
+ text-decoration: none;
+}
+
+.navbar ul {
+ list-style-type: none;
+ margin-top: -4em;
+ padding: 0;
+ 
+}
+
+.navbar li {
+ display: inline-block;
+ padding:0.6rem;
+    
+}
+
+
+.nabvbar li a {
+display: block;
+ color: rgb(128, 12, 85);
+ text-align: center;
+ padding: 0.1em 0.5em; 
+text-decoration: none;
+}
+
+.navbar li a:hover {
+ color:  rgb(28, 15, 207);
+ text-decoration: underline;
+}
+
+
+
+.footer-area{
+ width: 100%;
+ display: block;
+ background-color: rgb(19, 21, 22);
+ color: white;
+  padding: 2em;
+}
+
+
+.footer-area .explore{
+   padding-right: 13em;
+}
+.footer-area ul{
+ list-style-type: none;
+ padding-left: 1.5em;
+ padding-bottom: 0em;
+ margin: 0;
+ line-height: 1.5em;
+}
+ 
+
+.footer-area li a {
+ color:rgb(186, 189, 192) ;
+ text-decoration: none;
+ font-size: 1rem;
+} 
+
+.footer-area li a:hover {
+ text-decoration: underline;
+ 
+}
+
+
+.footer-area .policy{
+ text-decoration: none;
+ color: blue;
+
+ padding-left: 14em;
+}
+
+.footer-area .policy li a:hover {
+ text-decoration: underline;
+ color:white;
+}
+
+
+
+.footer-area .policy li a {
+ text-decoration: none;
+ color: rgb(38, 99, 179);
+ text-align: center;
+}
+
+.footer-area .social li{
+ display: inline-block;
+ text-align: right;
+}
+
+.footer-area .social ul{
+ list-style-type: none;
+ text-align: center;
+ font-size: 1.5rem;
+ padding-left:12em;
+}
+
+.footer-area .social li a{
+ 
+ border: black;
+ background-color: rgb(10, 11, 12);
+ padding:0.5rem 0.5rem 0.5rem 0.5rem; 
+}
+
+
+
+@media screen and (max-width:425px) and (min-width:300px){
+ 
+
+ .photos{
+   grid-template-columns: 1fr;
+   margin-left: 20rem;
+ } 
+ 
+ 
+ 
+}
+
+
+
+@media screen and  (max-width:768px) and (min-width:425px){
+   
+ 
+  
+   .top {
+     margin-left: 5em;
+   }
+   
+   .navbar ul{
+     margin-right: 1em;
+   }
+
+   
+}
+
+
+
+@media screen and (max-width:1200px) and (min-width:768px){
+   
+   .navbar ul{
+     margin-right: 19em;
+   }
+ }
+
+/*booking form */
+
+.booking-search{
+  background: url('/image/picture1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+  position: relative;
+
+}
+
+.booking-search .booking-form{
+    
+    font-size: 1.1em;
+    position: absolute;
+    top:4em;
+    color: white;
+    left: 40em;
+    background-color: rgba(0,0,0,0.10);
+    border-radius: 0.5em;
+    width: 500px ;
+    box-shadow: 0 17px 38px rgba(0,0,0,0.12);
+}
+.search-button{
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(122, 29, 73) ;
+  border: 0.1rem solid rgb(210, 218, 221) ;
+  border-radius: 0.3em;
+  padding: 0.3em 1em 0.3em 1em;
+  margin: 0 8em 0 8em;
+}
+.search-button :hover{
+  background-color:white;
+  color: #0b4dad;
+  text-decoration: underline;
+}
+.booking-search h2{
+    font-size: 30px;
+    line-height: 36px ;
+   color: rgb(141, 35, 93) ;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin: 0px ;
+    padding: 0px ;
+}
+
+.form .form-label{
+  font-size: 1em;
+ margin-top: 0.9em;
+  margin-bottom: 0.9em;
+
+}
+
+.form input[type="date" i],.form input[type=text],.form input[type=password]{
+  padding: 0.6em 12em 0.6em 0.6em;
+
+  color:rgb(107, 100, 100);
+  font-size: 0.7em;
+
+  outline: none;
+}
+

@@ -1,4 +1,4 @@
-body{
+body{ 
   background-color:rgb(236, 238, 241);
 }
 
@@ -17,7 +17,7 @@ body{
     margin: 0;
    padding: 0;
    width: 100%;
-   height : 17vh;
+   height : 20vh;
    background-color:rgb(236, 238, 241);
    border-top: 0.1rem solid  rgb(217, 222, 228); 
 
@@ -101,16 +101,15 @@ body{
 
 /* css part of Registrtion hndlebars*/
 
-bodys{
-    margin: 2em 0 2em 0;
-    padding : 0;
-      
-
+.registration{
+  margin:  2em 4em 2em 6em;
 }
+
+
 
 h3{
     text-align: center;
-    padding: 15px;
+    padding: 0px;
 }
 
 #register{
@@ -168,6 +167,7 @@ body {
 
 .logo{
  top: 1em;
+ margin : 1em;
  text-align: left;
   
 }
@@ -248,8 +248,7 @@ text-decoration: none;
 .footer-area .policy{
  text-decoration: none;
  color: blue;
-
- padding-left: 14em;
+padding-left: 14em;
 }
 
 .footer-area .policy li a:hover {
@@ -330,7 +329,7 @@ text-decoration: none;
   background: url('/image/picture1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 98vh;
   position: relative;
 
 }
@@ -339,12 +338,13 @@ text-decoration: none;
     
     font-size: 1.1em;
     position: absolute;
-    top:4em;
-    color: white;
-    left: 40em;
-    background-color: rgba(0,0,0,0.10);
+    top:4.5em;
+    color:rgb(100, 21, 58);
+    left: 16em;
+    background-color: rgba(243, 243, 243, 0.932);
     border-radius: 0.5em;
     width: 500px ;
+    height: 69vh;
     box-shadow: 0 17px 38px rgba(0,0,0,0.12);
 }
 .search-button{
@@ -367,13 +367,12 @@ text-decoration: none;
     font-size: 30px;
     line-height: 36px ;
    color: rgb(141, 35, 93) ;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    margin: 0px ;
-    padding: 0px ;
-}
+    
+    margin: 1em ;
+    }
 
 .form .form-label{
+  margin-left: 2em;
   font-size: 1em;
  margin-top: 0.9em;
   margin-bottom: 0.9em;
@@ -383,6 +382,7 @@ text-decoration: none;
 .form input[type="date" i],.form input[type=text],.form input[type=password]{
   padding: 0.6em 12em 0.6em 0.6em;
   outline: none;
+  width: 28em;
   color:rgb(107, 100, 100);
   font-size: 0.7em;
 }

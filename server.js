@@ -12,14 +12,14 @@ app.use(express.static('public'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.get("/",(req, res) =>{
+app.get("/", (req, res) => {
   res.render("home", {
     title: "Home",
     headingInfo: "HOME PAGE"
   })
 });
 
-app.get("/register",(req, res) =>{
+app.get("/register", (req, res) => {
   res.render("Registration", {
     title: "User Registration",
     headingInfo: "register now",
@@ -27,17 +27,23 @@ app.get("/register",(req, res) =>{
 });
 
 
-app.get("/room-listing",(req,res)=>{
+app.get("/room-listing", (req, res) => {
 
-  res.render("RoomList",{
-      title: "Room Lsting",
-      headingInfo : "Room Lsting Page",
+  res.render("RoomList", {
+    title: "Room Listing",
+    headingInfo: "Room Listing Page",
   })
 
-  });
+});
 
+app.get("/Login", (req, res) => {
 
+  res.render("Login", {
+    title: "Login",
+    headingInfo: " User Login page ",
+  })
 
+});
 
 const PORT = 3000;
 app.listen(3000, () => {

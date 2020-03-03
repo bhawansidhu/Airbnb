@@ -135,3 +135,32 @@
     </div>
 
 </section>
+<section class="roomList">
+    <div class="top">
+        <h2>Featured Rooms </h2>
+        
+    </div>
+     <div class="photos">
+        {{#each room}}
+        <div class="place">
+            <div class="place-item">
+                <img src="{{this.image}}" alt="image" class="place-img" width="370px" height="200px">
+            </div>
+            <div class="image-heading">
+                <a href="#Village Residency 1" class="image-link">{{this.title}}</a>
+                <p><i class="fas fa-building">&nbsp;</i>Apartment&nbsp;&nbsp;&nbsp;&nbsp;<i
+                        class="fas fa-bed"></i>&nbsp; 2BR &nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-bath"></i>&nbsp;2BA
+                </p>
+                <p class="bold">{{this.price}}</p>
+                <p>{{this.description}}</p>
+                <a href="#" class="button">Learn More</a>
+                <div class="star">
+                    <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>

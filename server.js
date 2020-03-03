@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+// load roomlist 
 const roomModel = require("./models/room");
 //load the environment variable file
 //require('dotenv').config({path:"./config/keys.env"});
@@ -33,7 +34,8 @@ app.set('view engine', 'handlebars');
 app.get("/", (req, res) => {
   res.render("home", {
     title: "Home",
-    headingInfo: "HOME PAGE"
+    headingInfo: "HOME PAGE",
+    room : roomModel.getallRooms()
   })
 });
 
@@ -76,7 +78,7 @@ app.get("/dashboard",(req,res)=>{
 
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT ||3000;
 app.listen(PORT, () => {
   console.log("web server is running");
 });

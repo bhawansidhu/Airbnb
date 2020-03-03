@@ -1,18 +1,24 @@
 <section class="user-login">
-  <div class="login-page">
+  <div class="login-page" id="login-post">
     <div>
+ 
 
-
-      <form class="login-form" id="login" method="Post" action="/ Userlogin">
+      <form class="login-form" id="login" method="Post" action="/login-Validation">
+      {{#each messages}}
+        <div class="errors">{{this}}</div>
+      {{/each}}
         <h3>Log In</h3>
         <hr>
-        <label id="icon" for="name"><i class="R-label"> Email Address :</i></label><br>
-        <input type="text" placeholder="Enter Email address" name="name" id="name" required /> <br>
+        
+        <label id="icon" for="uname"><i class="R-label"> Username :</i></label><br>
+        <input type="text" placeholder="Enter Username " name="uname" id="name" required /> <br>
 
-        <label id="icon" for="name"><i class="R-label"></i> Password : </label><br>
-        <input type="password" placeholder="Enter Valid Password" name="name" id="name" required /> <br>
+        <label id="icon" for="pswd"><i class="R-label"></i> Password : </label><br>
+        <input type="password" placeholder="Enter Valid Password" name="pswd" id="name" required /> <br>
 
         <input type="Submit" class="button" value="Log in">
+         <button type="button" onclick="document.getElementById('login-post').style.display='none'" class="cancel-btn">Cancel</button>
+
         <div class="bottom-text">
           <input type="checkbox" checked="checked" name="remember"> Remember me <br>
           <a href="#">Forgot Password ?</a>

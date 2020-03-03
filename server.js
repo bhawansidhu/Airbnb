@@ -75,6 +75,122 @@ app.get("/dashboard",(req,res)=>{
   })
 });
 
+// post validation
+
+app.post("/search",(req,res)=>{
+
+  const errors= [];
+
+if(req.body.where == "")
+{
+  errors.push("Must enter a place where you want");
+
+}
+
+if(req.body.Arrive == "")
+{
+  errors.push("Must enter Arrive date")
+}
+
+if(req.body.Depart == "")
+{
+  errors.push("Must enter Departure date")
+}
+if(req.body.guests == "")
+{
+  errors.push("Must enter number of guests")
+}
+
+if(errors.length > 0)
+{
+  res.render("dashboard",{
+    messages : errors
+  })
+}
+
+
+});
+
+app.post("/Validation", (req,res)=>{
+
+const errors=[];
+
+if(req.body.fname == ""){
+    errors.push("Enter your firstname.");
+}
+if(req.body.lname == ""){
+  errors.push("Enter your lastname.");
+}
+if(req.body.email == ""){
+  errors.push("Enter your email address.");  
+}
+if(req.body.pswd == ""){
+  errors.push("Enter your password.");
+}
+else if(req.body.pswd.length < 6){
+  errors.push("Password should be of minimum  5 characters");
+}
+
+if(errors.length > 0 )
+{
+res.render("dashboard",{
+    messages:errors
+})
+}
+else {
+
+  const accountSid = '';
+  const authToken = '';
+  const client = require('twilio')(accountSid, authToken);
+  
+  client.messages
+    .create({
+       body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
+       from: '',
+       to: `${req.body.phone}`
+     })
+    .then(messages => {
+      console.log(messages.sid);
+      res.render("dashboard");
+    })
+    .catch((err)=>{
+        console.log(`Error ${err}`);
+    })
+}
+});
+
+
+app.post("/login-Validation", (req,res)=>{
+
+const errors=[];
+
+if(req.body.uname == ""){
+    errors.push("Enter your Username.");
+    
+}
+
+if(req.body.pswd == ""){
+  errors.push("Must Enter your password.");
+}
+else if(req.body.psw.length < 6){
+  errors.push("Password should be of minimum 5 characters");
+}
+if(errors.length > 0 )
+{
+res.render("login",{
+    messages:errors
+})
+}
+else {
+res.render("dashboard", {
+title:"Room List Page",
+
+});
+}
+});
+
+
+
 
 
 

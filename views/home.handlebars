@@ -1,11 +1,14 @@
 <section>
     <div class="booking-search">
         <div class="booking-form">
+            {{#each messages}}
+         <div class="errors">{{this}}</div>
+          {{/each}} 
             <div>
                 <h2>Beach House? Condo? Cabin? <br> Your perfect location awaits ! </h2>
             </div>
             <div class="form">
-                <form class="form" method="post" action="/search places">
+                <form class="form" method="post" action="/search">
 
                     <div class="form-label">
                         <label for="where"><b>Where : </b></label>

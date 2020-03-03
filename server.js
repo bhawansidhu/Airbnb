@@ -151,7 +151,7 @@ else {
      })
     .then(messages => {
       console.log(messages.sid);
-      res.render("dashboard");
+      res.render("dasboard");
     })
     .catch((err)=>{
         console.log(`Error ${err}`);
@@ -182,7 +182,7 @@ res.render("login",{
 })
 }
 else {
-res.render("dashboard", {
+res.render("dasboard", {
 title:"Room List Page",
 
 });

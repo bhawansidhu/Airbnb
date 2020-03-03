@@ -316,7 +316,27 @@ padding-left: 14em;
  padding:0.5rem 0.5rem 0.5rem 0.5rem; 
 }
 
+/* Dashboard Handlebars */
+.welcome-section,.profile-section{
+  border:1px solid rgb(228, 228, 228);
+  padding: 1em;
+  margin: 1em;
+  padding: 1em;
+}
 
+.profile-section{
+  text-align: center;
+}
+.dashboard-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 1rem;
+  margin-left:3em;
+  margin-right: 3em;
+  padding: 1rem;
+  grid-row-gap: 0.6rem;
+  grid-column-gap: 0.6rem;
+}
 
 @media screen and (max-width:600px) and (min-width:450px){
  

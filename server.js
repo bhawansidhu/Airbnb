@@ -1,9 +1,9 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-
+const roomModel = require("./models/room");
 //load the environment variable file
-require('dotenv').config({path:"./config/keys.env"});
+//require('dotenv').config({path:"./config/keys.env"});
 
 
 const app = express();
@@ -20,13 +20,13 @@ app.set('view engine', 'handlebars');
 
 
 //load controllers
-const generalController = require("./controllers/general");
-const productController = require("./controllers/product");
+//const generalController = require("./controllers/general");
+//const productController = require("./controllers/product");
 
 //map each controller to the app object
 
-app.use("/",generalController);
-app.use("/product",productController);
+//app.use("/",generalController);
+//app.use("/product",productController);
 
 
 
@@ -50,6 +50,7 @@ app.get("/room-listing", (req, res) => {
   res.render("RoomList", {
     title: "Room Listing",
     headingInfo: "Room Listing Page",
+    room : roomModel.getallRooms()
   })
 
 });
@@ -62,6 +63,16 @@ app.get("/Login", (req, res) => {
   })
 
 });
+
+app.get("/dashboard",(req,res)=>{
+
+  res.render("dashboard",{
+      title: "Dashboard Page",
+      headingInfo : "Dashboard Page"
+
+  })
+});
+
 
 
 

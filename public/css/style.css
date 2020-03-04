@@ -363,16 +363,21 @@ padding-left: 14em;
   grid-column-gap: 0.6rem;
 }
 
+
+/* RESPONSIVE */
+
+
+
 @media screen and (max-width:500px){
  
-/* roomlist handlebars */
+
  .photos{
    grid-template-columns: 1fr;
    text-align:center;
   }
 
  .top {
-     margin-top: 9em;
+     margin: 2.5em;
   }
    
   .navbar ul{
@@ -450,24 +455,38 @@ padding-left: 14em;
 
 }
 
-@media screen and(max-width:768px) {
-   
- 
+
+@media screen and(max-width:800px) {
+  .logo {
+    top: 1em;
+    text-align: center;
+  }
   
-   .top {
+  
+  .top {
      margin-left: 5em;
-   }
+  }
    
-   .navbar ul{
-     margin-right: 1em;
-   }
-   .city{
+  .navbar ul{
+     margin-right: 1.5em;
+  }
+  .city{
     margin-left:2em ;
-     display: grid;
-     grid-template-columns: 1fr  1fr 1fr;
-     padding: 0.4em;     
+    display: grid;
+    grid-template-columns: 1fr  1fr 1fr;
+    padding: 0.4em;     
       
- }
+  }
+  .registration {
+    margin: 0 4em 2em 9em;
+    width: fit-content;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  } 
+
+  #register {
+    width: 390px;
+   }
 
  .dashboard-info .basic-info{ 
   

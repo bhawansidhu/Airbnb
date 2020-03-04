@@ -2,7 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 // load roomlist 
-const roomModel = require("../models/room");
+//const roomModel = require("../models/room");
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
 
@@ -33,6 +33,7 @@ app.use("/room",roomController);
 
 app.get("/", (req, res) => {
   console.log(process.env.TWILIO_TOKEN);
+  console.log(process.env.SEND_GRID_API_KEY);
   res.render("home", {
     title: "Home",
     headingInfo: "HOME PAGE",

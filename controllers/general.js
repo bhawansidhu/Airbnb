@@ -5,6 +5,7 @@ const roomModel = require("../models/room");
 
 router.get("/",(req,res)=>{
     console.log(process.env.TWILIO_TOKEN);
+    console.log(process.env.SEND_GRID_API_KEY);
     res.render("home",{
         title: "Airbnb",
         headingInfo : "Home Page",
@@ -55,9 +56,9 @@ router.post("/Validation", (req,res)=>{
 
     else {
       //Send Message , once user register
-       // const accountSid = ;
-       // const authToken = process.env.TWILIO_TOKEN;
-      //  const client = require('twilio')(accountSid, authToken);
+        const accountSid = process.env.TWILIO_AUTHID;
+        const authToken = process.env.TWILIO_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
         const sgMail = require('@sendgrid/mail');
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
@@ -77,18 +78,18 @@ router.post("/Validation", (req,res)=>{
     })
         
       // client.messages
-       //   .create({
-       //      body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
-       //      from: '',
-      //       to: `${req.body.phone}`
-       //    })
-       //   .then(messages => {
-      //      console.log(messages.sid);
-      //      res.render("dashboard");
-      //    })   
-       //   .catch((err)=>{
-       //     console.log(err);
-        //  })
+          .create({
+             body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
+             from: '',
+            to: `${req.body.phone}`
+           })
+         .then(messages => {
+           console.log(messages.sid);
+           res.render("dashboard");
+         })   
+         .catch((err)=>{
+           console.log(err);
+          })
 }
     });
     module.exports=router;

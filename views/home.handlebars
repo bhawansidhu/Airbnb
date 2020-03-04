@@ -1,13 +1,14 @@
 <section>
     <div class="booking-search">
-        <div class="booking-form">
-            {{#each messages}}
-         <div class="errors">{{this}}</div>
-          {{/each}} 
-            <div>
-                <h2>Beach House? Condo? Cabin? <br> Your perfect location awaits ! </h2>
-            </div>
-            <div class="form">
+        <div class="book-form">
+            {{!--  {{#each messages}}
+            <div class="errors">{{this}}</div>
+            {{/each}} --}}
+            <div class="form1">
+
+                <h2>Beach House? Condo?<br> Your perfect location!</h2>
+
+
                 <form class="form" method="post" action="/search">
 
                     <div class="form-label">
@@ -38,6 +39,7 @@
                 </form>
             </div>
         </div>
+    </div>
 
 
     </div>
@@ -48,13 +50,22 @@
         <h2>Search More Places !</h2>
     </div>
 
-    <div class="more-places" id="more-cities">
+    <div class="more-cities">
         <section class="city">
             <div class="city-img">
                 <img src="image/south.jpeg" alt="Southern USA" style="width: 300px; height: 200px">
             </div>
             <div class="city-name">
                 <p class="city-heading"><strong>Southern USA</strong></p>
+            </div>
+        </section>
+
+        <section class="city">
+            <div class="city-img">
+                <img src="image/kashmir.jpg" alt="kashmir" style="width: 300px; height: 200px">
+            </div>
+            <div class="city-name">
+                <p class="city-heading"><strong>Kashmir,INDIA</strong></p>
             </div>
         </section>
 
@@ -94,6 +105,15 @@
             </div>
             <div class="city-name">
                 <p class="city-heading"><strong>Kashmir,INDIA</strong></p>
+            </div>
+        </section>
+
+        <section class="city">
+            <div class="city-img">
+                <img src="image/goa.jpg" alt="goa" style="width: 300px; height: 200px">
+            </div>
+            <div class="city-name">
+                <p class="city-heading"><strong>GOA</strong></p>
             </div>
         </section>
 
@@ -141,9 +161,9 @@
 <section class="roomList">
     <div class="top">
         <h2>Featured Rooms </h2>
-        
+
     </div>
-     <div class="photos">
+    <div class="photos">
         {{#each room}}
         <div class="place">
             <div class="place-item">

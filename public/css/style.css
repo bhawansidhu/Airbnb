@@ -1,5 +1,5 @@
 body{ 
-  background-color:rgb(244, 244, 245);
+  background-color:rgb(236, 238, 241);
 }
 
 
@@ -177,6 +177,13 @@ h3{
     border:none;
     border-radius: 0.3em;
     outline:0;
+}
+.cancel-btn a {
+  color:rgb(121, 13, 76);
+}
+
+.cancel-btn a:hover {
+  color:rgb(121, 13, 76);
 }
  
 .cancel-btn:hover{
@@ -356,7 +363,7 @@ padding-left: 14em;
   grid-column-gap: 0.6rem;
 }
 
-@media screen and (max-width:700px) and (min-width:500px){
+@media screen and (max-width:500px){
  
 /* roomlist handlebars */
  .photos{
@@ -369,34 +376,59 @@ padding-left: 14em;
   }
    
   .navbar ul{
-     margin-top: 2em;
+     margin-top: 3em;
   }
    .logo {
     top: 1em;
-    
     text-align: center;
   }
+  .user-login{
+  margin: 6em 4em 2em 0;
+  width: fit-content;
+
+  }
+    
+
+ .login-form {
+  margin: 0.3em ;
+ }
 
  .login-page {
-  margin: 10em 4em 7em 2em;
-
+  width: fit-content;
  }
- #login {
-  
-  width: 395px;
 
-  
+ #login{
+   width: 200px;
+ }
+
+
  
+
+ .booking-search{
+  margin: 6em 0 2em 0em;
  }
+.booking-form{
+  margin-bottom: 12em;
+}
+
+  .more-cities .city{
+   margin-left:2em ;
+   display: grid;
+   grid-template-columns: 1fr;
+   padding: 0.4em; 
+   
+}
+ 
+ 
  .registration {
-  margin: 10em 4em 2em 2em;
+  margin: 6em 4em 2em 2em;
   width: fit-content;
 
  }
  #register {
-  
   width: 390px;
  }
+
  .dashboard-info{ 
   
   margin: 2em 4em 1em 4em ;
@@ -406,7 +438,7 @@ padding-left: 14em;
 
 }
 
-@media screen and  (max-width:768px) and (min-width:700px){
+@media screen and(max-width:768px) {
    
  
   
@@ -417,7 +449,14 @@ padding-left: 14em;
    .navbar ul{
      margin-right: 1em;
    }
-
+   .city{
+    margin-left:2em ;
+     display: grid;
+     grid-template-columns: 1fr  1fr 1fr;
+     padding: 0.4em; 
+     
+      
+ }
    
 }
 
@@ -431,23 +470,19 @@ padding-left: 14em;
   background: url('/image/picture1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
-  position: relative;
-
+  height: 60vh;
+  
 }
 
-.booking-search .booking-form{
-    
-    font-size: 1.1em;
-    position: absolute;
-    top:4.5em;
-    color:rgb(100, 21, 58);
-    left: 16em;
-    background-color: rgba(243, 243, 243, 0.932);
-    border-radius: 0.5em;
-    width: 500px ;
-    height: 50vh;
-    box-shadow: 0 17px 38px rgba(0,0,0,0.12);
+
+.book-form {
+   font-size: 1.1em;
+  color:rgb(100, 21, 58);
+  background-color: rgba(243, 243, 243, 0.932);
+  border-radius: 0.5em;
+  width: 400px;
+  height: 40vh;
+  box-shadow: 0 17px 38px rgba(0,0,0,0.12);
 }
 .search-button ,.button1{
   color: white;
@@ -485,7 +520,7 @@ padding-left: 14em;
 .form input[type="date" i],.form input[type=text],.form input[type=password]{
   padding: 0.6em 12em 0.6em 0.6em;
   outline: none;
-  width: 28em;
+  width: 23em;
   color:rgb(107, 100, 100);
   font-size: 0.7em;
 }
@@ -499,11 +534,12 @@ padding-left: 14em;
 
 
 .more-cities{
-     display: grid;
-    grid-template-columns: 1fr 1fr  1fr;
-    padding: 0 4em; 
-    grid-column-gap: 0.3rem;
-    grid-row-gap: 0.3rem;
+   margin-left:2em ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0.4em; 
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
      
 }
 
@@ -514,7 +550,6 @@ padding-left: 14em;
   background-repeat: no-repeat;
   background-size: cover;
   height: 95vh;
-  position: relative;
 }
 
 
@@ -522,10 +557,11 @@ padding-left: 14em;
 
 .login-page{
 
-  margin:  0 4em 2em 28em; 
-  width: fit-content;
+   margin:  2em 2em;  
+   width: fit-content; 
   padding-top: 2em;
   padding-bottom: 2em;
+  
 
   
 }
@@ -540,28 +576,28 @@ h3{
 #login{
     
     background: rgba(160, 42, 111, 0.8);
-    width: 500px;
+    width: 400px;
     color: white;
     font-size: 1.2em;
     padding: 2em 1em 2em 2em;
     border-radius: 0.6em;
-
+    
 }
 
 #name {
-    width: 300px;
+    width: 250px;
     color: black;
     border : none;
     border-radius : 3px;
     outline: 0;
-    padding: 7px;
-    margin: 0.5em;
+    padding: 5px;
+    margin: 0.3em;
 }
 
 .button{
     cursor: pointer;
-    padding-left : 1.4em;
-    padding-right : 1.4em;
+    padding-left : 1em;
+    padding-right : 1em;
     color: rgb(121, 13, 76);
     font-size: 1.1em;
     font-family: sans-serif;
@@ -569,7 +605,7 @@ h3{
     border:none;
     border-radius: 0.3em;
     outline:0;
-    margin: 1em 1em 1em 7em;
+    margin: 1em 1em 1em 3em;
 
 
 }

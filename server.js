@@ -33,7 +33,7 @@ app.use("/room",roomController);
 
 app.get("/", (req, res) => {
   console.log(process.env.TWILIO_TOKEN);
-  console.log(process.env.SEND_GRID_API_KEY);
+  console.log(process.env.SENDGRID_API_KEY);
   res.render("home", {
     title: "Home",
     headingInfo: "HOME PAGE",
@@ -141,19 +141,19 @@ res.render("Registration",{
 }
 else {
 
-  const accountSid = '';
-  const authToken = '';
+  const accountSid = process.env.TWILIO_AUTHID;
+  const authToken = process.env.TWILIO_TOKEN;
   const client = require('twilio')(accountSid, authToken);
   
   client.messages
     .create({
        body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
-       from: '',
+       from: '+12065678156',
        to: `${req.body.phone}`
      })
     .then(messages => {
       console.log(messages.sid);
-      res.render("dasboard");
+      res.render("dashboard");
     })
     .catch((err)=>{
         console.log(`Error ${err}`);
@@ -174,7 +174,7 @@ if(req.body.uname == ""){
 if(req.body.pswd == ""){
   errors.push("Must Enter your password.");
 }
-else if(req.body.psw.length < 6){
+else if(req.body.pswd.length < 6){
   errors.push("Password should be of minimum 5 characters");
 }
 if(errors.length > 0 )
@@ -184,8 +184,8 @@ res.render("login",{
 })
 }
 else {
-res.render("dasboard", {
-title:"Room List Page",
+res.render("dashboard", {
+title:"YOUR PROFILE",
 
 });
 }

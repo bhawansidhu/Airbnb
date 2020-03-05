@@ -5,7 +5,7 @@ const roomModel = require("../models/room");
 
 router.get("/", (req, res) => {
   console.log(process.env.TWILIO_TOKEN);
-  console.log(process.env.SEND_GRID_API_KEY);
+  console.log(process.env.SENDGRID_API_KEY);
   res.render("home", {
     title: "Airbnb",
     headingInfo: "Home Page",
@@ -61,12 +61,12 @@ router.post("/Validation", (req, res) => {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
-      to: `bhawansidhu2@gmail.com`,
-      from: `${req.body.email}`,
+      to: `${req.body.email}`,
+      from: `bhawansidhu2@gmail.com`,
       subject: 'Welcome to Airbnb',
       text: 'Hello, How are you ? ',
-      html: `Visiter's Full Nmae ${fname} ${lname}
-      Visiter's Email Address ${email}`,
+     html: `Visiter's Full Name ${req.body.fname} ${req.body.lname}<br>
+      Visiter's Email Address ${req.body.email}`,
     };
 
     sgMail.send(msg)
@@ -75,12 +75,12 @@ router.post("/Validation", (req, res) => {
       })
       .catch((err) => {
         console.log(err);
-      })
+      }),
 
-      // client.messages
+      client.messages
       .create({
         body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
-        from: '',
+        from: '+12065678156',
         to: `${req.body.phone}`
       })
       .then(messages => {

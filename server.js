@@ -8,6 +8,7 @@ require('dotenv').config({path:"./config/keys.env"});
 
 
 const app = express();
+const mongoose = require("mongoose");
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +19,22 @@ app.use(express.static('public'));
 //This tells Express to set or register Handlebars as its' Template/View Engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
+
+app.use((req,res,next)=>{
+
+  if(req.query.method == "PUT")
+  {
+      req.method="PUT"
+  }
+
+  else if(req.query.method == "DELETE")
+  {
+      req.method="DELETE"
+  }
+
+  next();
+})
+
 
 
 //load controllers
@@ -191,10 +208,18 @@ title:"YOUR PROFILE",
 }
 });
 
+//DATABASE CONNECTION 
+
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(()=>{
+    console.log("Connected to the MongoDB Database");
+})
+.catch(err=>{console.log(`Error occured when connecting to database. ${err}`)})
 
 
 
 
+                                                                                                          
 
 const PORT = process.env.PORT ||3000;
 app.listen(PORT, () => {

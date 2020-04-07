@@ -20,21 +20,8 @@ app.use(express.static('public'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.use((req,res,next)=>{
 
-  if(req.query.method == "PUT")
-  {
-      req.method="PUT"
-  }
-
-  else if(req.query.method == "DELETE")
-  {
-      req.method="DELETE"
-  }
-
-  next();
-})
-
+  
 
 
 //load controllers
@@ -58,43 +45,9 @@ app.get("/", (req, res) => {
   })
 });
 
-app.get("/register", (req, res) => {
-  res.render("Registration", {
-    title: "User Registration",
-    headingInfo: "register now",
-  })
-});
 
 
-app.get("/room-listing", (req, res) => {
-
-  res.render("RoomList", {
-    title: "Room Listing",
-    headingInfo: "Room Listing Page",
-    room : roomModel.getallRooms()
-  })
-
-});
-
-app.get("/Login", (req, res) => {
-
-  res.render("Login", {
-    title: "Login",
-    headingInfo: " User Login page ",
-  })
-
-});
-
-app.get("/dashboard",(req,res)=>{
-
-  res.render("dashboard",{
-      title: "Dashboard Page",
-      headingInfo : "Dashboard Page"
-
-  })
-});
-
-// post validation
+// post validation of home search page
 
 app.post("/search",(req,res)=>{
 
@@ -122,7 +75,7 @@ if(req.body.guests == "")
 
 if(errors.length > 0)
 {
-  res.render("dashboard",{
+  res.render("RoomList",{
     messages : errors
   })
 }
@@ -130,83 +83,9 @@ if(errors.length > 0)
 
 });
 
-app.post("/Validation", (req,res)=>{
-
-const errors=[];
-
-if(req.body.fname == ""){
-    errors.push("Enter your firstname.");
-}
-if(req.body.lname == ""){
-  errors.push("Enter your lastname.");
-}
-if(req.body.email == ""){
-  errors.push("Enter your email address.");  
-}
-if(req.body.pswd == ""){
-  errors.push("Enter your password.");
-}
-else if(req.body.pswd.length < 6){
-  errors.push("Password should be of minimum  5 characters");
-}
-
-if(errors.length > 0 )
-{
-res.render("Registration",{
-    messages:errors
-})
-}
-else {
-
-  const accountSid = process.env.TWILIO_AUTHID;
-  const authToken = process.env.TWILIO_TOKEN;
-  const client = require('twilio')(accountSid, authToken);
-  
-  client.messages
-    .create({
-       body: `${req.body.fname} ${req.body.lname} Email :${req.body.email}`,
-       from: '+12065678156',
-       to: `${req.body.phone}`
-     })
-    .then(messages => {
-      console.log(messages.sid);
-      res.render("dashboard");
-    })
-    .catch((err)=>{
-        console.log(`Error ${err}`);
-    })
-}
-});
 
 
-app.post("/login-Validation", (req,res)=>{
 
-const errors=[];
-
-if(req.body.uname == ""){
-    errors.push("Enter your Username.");
-    
-}
-
-if(req.body.pswd == ""){
-  errors.push("Must Enter your password.");
-}
-else if(req.body.pswd.length < 6){
-  errors.push("Password should be of minimum 5 characters");
-}
-if(errors.length > 0 )
-{
-res.render("login",{
-    messages:errors
-})
-}
-else {
-res.render("dashboard", {
-title:"YOUR PROFILE",
-
-});
-}
-});
 
 //DATABASE CONNECTION 
 

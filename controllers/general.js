@@ -2,6 +2,21 @@ const express = require('express')
 const router = express.Router();
 
 const roomModel = require("../models/room");
+const taskModel = require("../models/task");
+//const adminmodel = require("../models/admin");
+
+//This allows express to make my static content avialable from the public
+router.use(express.static('static'));
+router.use(bodyParser.urlencoded({ extended: false }))
+
+router.use((req, res, next) => {
+    if (req.query.method == "PUT") {
+        req.method = "PUT"
+    } else if (req.query.method == "DELETE") {
+        req.method = "DELETE"
+    }
+    next();
+})
 
 router.get("/", (req, res) => {
   console.log(process.env.TWILIO_TOKEN);
@@ -24,8 +39,110 @@ router.get("/room-listing", (req, res) => {
 
 });
 
+router.get("/register", (req, res) => {
+  res.render("Registration", {
+    title: "User Registration",
+    headingInfo: "register now",
+  })
+});
 
 
+
+
+router.get("/Login", (req, res) => {
+
+  res.render("Login", {
+    title: "Login",
+    headingInfo: " User Login page ",
+  })
+
+});
+
+router.get("/admin", (req, res) => {
+
+  res.render("admin", {
+      title: "Admin page",
+      headingInfo: "Admin Page",
+  });
+});
+
+router.get("/dashboard", (req, res) => {
+
+  taskModel.find()
+      .then((store) => {
+
+          const filtertask = store.map(result => {
+
+              return {
+
+                  fName: result.fName,
+                  lName: result.lName,
+                  phone: result.phone,
+                  email: result.email
+              }
+          });
+          res.render("adminedit", {
+              data: filtertask
+          })
+      })
+
+  .catch(err => console.log(`error in pulling database : ${err}`));
+});
+
+
+ //router.get("/dashboard",(req,res)=>{
+
+ // res.render("dashboard",{
+   //   title: "Dashboard Page",
+  //    headingInfo : "Dashboard Page"
+
+////  })
+//});
+
+
+//LOGIN PAGE Validation
+
+router.get("/Login-Validation", (req, res) => {
+  res.render("login", {
+      title: "SMS Page"
+  });
+});
+
+app.post("/login-Validation", (req,res)=>{
+
+  const errors=[];
+  
+  if(req.body.uname == ""){
+      errors.push("Enter your Username.");
+      
+  }
+  
+  if(req.body.pswd == ""){
+    errors.push("Must Enter your password.");
+  }
+  else if(req.body.pswd.length < 6){
+    errors.push("Password should be of minimum 5 characters");
+  }
+  if(errors.length > 0 )
+  {
+  res.render("login",{
+      messages:errors
+  })
+  }
+  else {
+  res.render("dashboard", {
+  title:"YOUR PROFILE",
+  
+  });
+  }
+  });
+
+//Registration page validation
+router.get("/Validation", (req, res) => {
+  res.render("Registration", {
+      title: "SMS Page"
+  });
+});
 
 router.post("/Validation", (req, res) => {
 
@@ -39,6 +156,9 @@ router.post("/Validation", (req, res) => {
   }
   if (req.body.email == "") {
     errors.push("Enter your email address.");
+  }
+  if (req.body.phone == "") {
+    errors.push("Enter your Phone Number.");
   }
   if (req.body.pswd == "") {
     errors.push("Enter your password.");

@@ -1,30 +1,26 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// here is the schema for room listing. 
-const taskSchema = new Schema({
-    title: {
+//i used this schema for the room listing
+const userSchema = new Schema({
+    fname: {
         type: String,
         require: true
     },
-    description: {
+    lname: {
         type: String,
         require: true
     },
-    price: {
-        type: number,
+    phone: {
+        type: Number,
         require: true
     },
-    location: {
+    email: {
         type: String,
         require: true
     },
     type: {
         type: String,
-        default: "Regular"
-    },
-    photo: {
-        type: String,
-        require: false
+        default: "New"
     },
     dateCreated: {
         type: Date,
@@ -35,5 +31,5 @@ const taskSchema = new Schema({
     }
 });
 
-const taskModel = mongoose.model('Room', roomSchema);
-module.exports = taskModel;
+const userModel = mongoose.model('User', userSchema);
+module.exports = userModel;

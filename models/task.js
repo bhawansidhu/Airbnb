@@ -11,7 +11,7 @@ const taskSchema = new Schema({
         require: true
     },
     price: {
-        type: number,
+        type: Number,
         require: true
     },
     location: {
@@ -35,5 +35,5 @@ const taskSchema = new Schema({
     }
 });
 
-const taskModel = mongoose.model('Room', roomSchema);
+const taskModel = mongoose.model('Room', taskSchema);
 module.exports = taskModel;

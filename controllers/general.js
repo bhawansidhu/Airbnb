@@ -2,21 +2,20 @@ const express = require('express')
 const router = express.Router();
 
 const roomModel = require("../models/room");
-const taskModel = require("../models/task");
-//const adminmodel = require("../models/admin");
+
 
 //This allows express to make my static content avialable from the public
 router.use(express.static('static'));
-router.use(bodyParser.urlencoded({ extended: false }))
 
-router.use((req, res, next) => {
-    if (req.query.method == "PUT") {
-        req.method = "PUT"
-    } else if (req.query.method == "DELETE") {
-        req.method = "DELETE"
-    }
-    next();
-})
+
+///router.use((req, res, next) => {
+ //   if (req.query.method == "PUT") {
+ //       req.method = "PUT"
+  //  } else if (req.query.method == "DELETE") {
+  //      req.method = "DELETE"
+  //  }
+  //  next();
+//})
 
 router.get("/", (req, res) => {
   console.log(process.env.TWILIO_TOKEN);
@@ -58,46 +57,17 @@ router.get("/Login", (req, res) => {
 
 });
 
-router.get("/admin", (req, res) => {
 
-  res.render("admin", {
-      title: "Admin page",
-      headingInfo: "Admin Page",
+
+
+
+
+ router.get("/dashboard",(req,res)=>{
+ res.render("dashboard",{
+  title: "Dashboard Page",
+  headingInfo : "Dashboard Page"
+ })
   });
-});
-
-router.get("/dashboard", (req, res) => {
-
-  taskModel.find()
-      .then((store) => {
-
-          const filtertask = store.map(result => {
-
-              return {
-
-                  fName: result.fName,
-                  lName: result.lName,
-                  phone: result.phone,
-                  email: result.email
-              }
-          });
-          res.render("adminedit", {
-              data: filtertask
-          })
-      })
-
-  .catch(err => console.log(`error in pulling database : ${err}`));
-});
-
-
- //router.get("/dashboard",(req,res)=>{
-
- // res.render("dashboard",{
-   //   title: "Dashboard Page",
-  //    headingInfo : "Dashboard Page"
-
-////  })
-//});
 
 
 //LOGIN PAGE Validation
@@ -108,7 +78,7 @@ router.get("/Login-Validation", (req, res) => {
   });
 });
 
-app.post("/login-Validation", (req,res)=>{
+router.post("/login-Validation", (req,res)=>{
 
   const errors=[];
   

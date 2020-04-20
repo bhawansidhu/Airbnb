@@ -1,0 +1,21 @@
+<div class="photos">
+    {{#each room}}
+    <div class="place">
+        <div class="place-item">
+             <h2>{{this.title}}</h2>
+            <img src="/room_images/{{roomImage}}" width="100%">
+
+            <div class="description">
+                <p><span style="font-weight:bold; color:blue">Featured Room:</span>{{this.FeaturedRoom}}</p><i
+                class="fas fa-star"></i>
+                <h2>{{this.description}}</h2>
+                 <h4>{{this.location}}</h4>
+                <h4 class="price">Price Per Night: {{this.price}} $</h4>
+                <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{{/each}}

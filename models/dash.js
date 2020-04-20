@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//i used this schema for the room listing
+const bcrypt = require("bcryptjs");
 const userSchema = new Schema({
     fname: {
         type: String,
@@ -20,7 +20,7 @@ const userSchema = new Schema({
     },
     type: {
         type: String,
-        default: "New"
+        default:"User"
     },
     dateCreated: {
         type: Date,
@@ -29,7 +29,20 @@ const userSchema = new Schema({
     createdBy: {
 
     }
-});
+})
+userSchema.pre("save",function(next){
+
+    bcrypt.genSalt(10)
+    .then((salt)=>{
+        bcrypt.hash(this.Pswd,salt)
+        
+        .then((encryptedPswd)=>{
+            this.Pswd=encryptedPswd;
+            next();
+        })
+    })
+    .catch(error=>console.log(`Error occured while salting the password ${error}`));
+})
 
 const userModel = mongoose.model('User', userSchema);
 module.exports = userModel;

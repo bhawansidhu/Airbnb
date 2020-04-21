@@ -67,7 +67,7 @@ router.get("/Login", (req, res) => {
 
 
 
-router.get("/dashboard",LoggedIn,AdminorUser, (req, res) => {
+router.get("Your-Profile",LoggedIn,AdminorUser, (req, res) => {
 res.render("../views/dashboards/dashboard", {
 title: "Dashboard Page",
 headingInfo: "Dashboard Page",
@@ -173,7 +173,7 @@ router.post("/search", (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render("RoomList", {
+    res.render("room-listing", {
       messages: errors
     })
   }
@@ -258,7 +258,7 @@ router.post("/Validation", (req, res) => {
 
     sgMail.send(msg)
       .then(() => {
-        res.redirect("home");
+        res.redirect("dash");
       })
       .catch((err) => {
         console.log(err);

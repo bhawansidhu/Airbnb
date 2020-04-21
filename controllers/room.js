@@ -158,7 +158,7 @@ router.delete("/delete/:id",(req,res)=>{
 
 
 
-router.get('/room_images/:id',(req,res)=>{
+router.get('/room_image/:id',(req,res)=>{
 
     adminModel.findById(req.params.id)
     .then((user)=>{

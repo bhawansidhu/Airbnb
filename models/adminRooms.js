@@ -31,6 +31,10 @@ const roomSchema = new Schema(
             type: Date,
             default: Date.now()
         },
+        roomImage:
+        {
+            type:String
+        },
         createdBy: {
 
         }

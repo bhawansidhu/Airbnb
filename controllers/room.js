@@ -69,18 +69,18 @@ router.get("/view_rooms",(req,res)=>{
 
     adminModel.find()
 
-    .then((records)=>{
+    .then((tasks)=>{
 
-        const rooms_data = records.map(record =>{
+        const rooms_data = tasks.map(task =>{
             
             return {
-                id:record._id,
-                title:record.title,
-                price:record.price,
-                description:record.description,
-                location:record.location,
-                FeaturedRoom:record.FeaturedRoom,
-                roomImage:record.roomImage
+                id:task._id,
+                title:task.title,
+                price:task.price,
+                description:task.description,
+                location:task.location,
+                FeaturedRoom:task.FeaturedRoom,
+                roomImage:task.roomImage
                 
             }
         })
@@ -151,7 +151,7 @@ router.delete("/delete/:id",(req,res)=>{
         res.redirect("/room-listing/view_rooms");
     })
 
-    .catch(err=>console.log(`Error occured while deleting the record ${err}`));
+    .catch(err=>console.log(`Error occured while deleting the task ${err}`));
 
 })
 

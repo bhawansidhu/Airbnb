@@ -1,33 +1,30 @@
-<div class="room_lst_frm">
-    <div class="room_lst_frm_cntnt">
+<div class="registration-page">
+    <div class="registration">
       <form action="/room-listing/updateRooms/{{_id}}?method=PUT" method="POST">
 
-        <h2 class="crte_rm_hd">Update Rooms Here</h2>
-
-        <label class="room_lbl">Room Title</label>
-        <input type="text" placeholder="Enter title" name="title" value="{{Title}}">
+        <h3>Edit Room Information</h3>
+         <hr>
+        <label class="U-label">Room Title</label>
+        <input type="text" class="update-label" placeholder="Enter title" name="title" value="{{title}}">
         <br>
 
-        <label class="room_lbl">Price</label>
-        <input type="number" placeholder="Enter price" id="room_prc" name="price" value="{{Price}}">
+        <label  class="U-label">Price</label>
+        <input type="number"class="update-label" placeholder="Enter price" id="room_prc" name="price" value="{{price}}">
         <br>
 
-        <label class="room_lbl"> Enter Room Description</label>
-        <input type="text" placeholder="Enter Description" id="room_dsc" name="description" value="{{Description}}">  
+        <label  class="U-label">Room Description</label>
+        <input type="text" class="update-label" placeholder="Enter Description" id="room_dsc" name="description" value="{{description}}">  
         <br>
     
-        <label class="room_lbl">Location</label>
-        <input type="text" placeholder="Enter Location" id="room_lcn" name="location" value="{{Location}}">
+        <label  class="U-label">Location</label>
+        <input type="text" class="update-label" placeholder="Enter Location" id="room_lcn" name="location" value="{{location}}">
         <br>
 
-        <label class="room_lbl">Featured Room</label>
-        <br>
-        <input type="text" name="ftrd_rm" id="chck_ys" placeholder="Enter Yes or No" value="{{FeaturedRoom}}"> 
-        
-        <label class="room_lbl">File Upload</label>
-        <input type="file" name="roomImage" > <br><br>
+                
+        <label  class="U-label">File Upload</label>
+        <input type="file" class="update-label" name="roomImage" > <br><br>
 
-        <button type="submit" class="add_rm"> ADD ROOM </button> 
+        <button type="submit" class="button"> ADD ROOM </button> 
 
         </form>
     </div>

@@ -67,7 +67,7 @@ router.get("/Login", (req, res) => {
 
 
 
-router.get("Your-Profile",LoggedIn,AdminorUser, (req, res) => {
+router.get("/dashboard",LoggedIn,AdminorUser, (req, res) => {
 res.render("../views/dashboards/dashboard", {
 title: "Dashboard Page",
 headingInfo: "Dashboard Page",
@@ -85,7 +85,7 @@ headingInfo: "Dashboard Page",
 
 router.post("/login-Validation", (req, res) => {
 
-  userModel.findOne({ Email: req.body.email })
+  userModel.findOne({ email: req.body.email })
     .then(user => {
 
       const errors = [];
@@ -103,7 +103,7 @@ router.post("/login-Validation", (req, res) => {
 
             if (isMatched) {
               req.session.userInfo = user;
-              res.redirect("../views/dashboards/dashboard");
+              res.redirect("/dashboard");
             }
 
             else {
@@ -209,12 +209,12 @@ router.post("/Validation", (req, res) => {
   if (req.body.pswd == "") {
     errors.push("Please Enter your password.");
   }
-  else if (req.body.pswd.length < 9) {
-    errors.push("Password should be of minimum  8 characters");
+  else if (req.body.pswd.length > 5) {
+    errors.push("Password should be less than 5 characters");
   }
 
   if (errors.length > 0) {
-    res.render("Registration", {
+    res.render("../views/Registration", {
       messages: errors
     })
   }
@@ -258,7 +258,7 @@ router.post("/Validation", (req, res) => {
 
     sgMail.send(msg)
       .then(() => {
-        res.redirect("dash");
+       
       })
       .catch((err) => {
         console.log(err);
@@ -271,8 +271,10 @@ router.post("/Validation", (req, res) => {
           to: `${req.body.phone}`
         })
         .then(messages => {
-          console.log(messages.sid);
-          res.render("home");
+         // console.log(messages.sid);
+          res.render("../views/dashboards/dashboard",{
+            name:`${req.body.fname} ${req.body.lname}`
+          });
         })
         .catch((err) => {
           console.log(err);

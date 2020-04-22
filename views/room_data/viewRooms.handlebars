@@ -1,21 +1,62 @@
+<div style="text-align: center;margin:2em;font-size:1.5em; font-weight:bold;" >
+     <a href="/room-listing/create_rooms" style="text-decoration:underline;color:rgb(133, 13, 79)"> Click Here to Create More rooms</a>
+</div>
+
+<section class="roomList">
+
+    <div class="photos">
+        {{#each rooms}}
+        <div class="place">
+            <div class="place-item">
+                <img src="/room_images/{{roomImage}}" class="place-img" width="400px" height="210px">
+            </div>
+            <div class="main-heading-view">
+                <h4><a href="#Village Residency 1" class="image-title">{{this.title}}</a></h4>
+
+                 <h4 class="bold-p"> ${{this.price}} Avg/Night </h4>
+                 <h4 class="location">Location: {{this.location}} </h4>
+                <h5 class="description">{{this.description}}</h5>
+                <a href="/room-listing/edit_rooms/{{this.id}}" class="del-button" id="edit_btn">Edit</a>
+                <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="del-button">Delete</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    
+</section>
+
+
+
+
+
+
+
+{{!--<section>
 <div class="photos">
-    {{#each room}}
+    {{#each rooms}}
     <div class="place">
         <div class="place-item">
-             <h2>{{this.title}}</h2>
+            <h2>{{this.title}}</h2>
             <img src="/room_images/{{roomImage}}" width="100%">
 
             <div class="description">
                 <p><span style="font-weight:bold; color:blue">Featured Room:</span>{{this.FeaturedRoom}}</p><i
-                class="fas fa-star"></i>
+                    class="fas fa-star"></i>
                 <h2>{{this.description}}</h2>
-                 <h4>{{this.location}}</h4>
+                <h4>{{this.location}}</h4>
                 <h4 class="price">Price Per Night: {{this.price}} $</h4>
                 <a href="/room-listing/delete/{{this.id}}?method=DELETE" class="view_and_mod_btn">Delete</a>
             </div>
         </div>
     </div>
 
+    {{/each}}
 
 </div>
-{{/each}}
+
+<div style="text-align: center;margin:2em;font-size:1.5em; font-weight:bold;" >
+     <a href="/room-listing/create_rooms" style="text-decoration:underline;color:brown"> <i class="fas fa-share" style="margin-right:1em;"></i>Create More rooms here!</a>
+</div>
+</section>
+
+            <img src="/room_images/{{roomImage}}" width="100%"> --}}

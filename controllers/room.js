@@ -32,11 +32,11 @@ router.get("/create_rooms",(req,res)=>{
 router.post("/create_rooms",(req,res)=>{
 
     const newRoom = {
-        Title:req.body.title,
-        Price: req.body.price,
-        Description: req.body.description,
-        Location: req.body.location,
-        FeaturedRoom:req.body.ftrd_rm,
+        title:req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        location: req.body.location,
+      //  FeaturedRoom:req.body.ftrd_rm,
 
     };
 
@@ -45,7 +45,7 @@ router.post("/create_rooms",(req,res)=>{
     user.save()
     .then((user)=>{
         req.files.roomImage.name = `room_image_${user._id}${path.parse(req.files.roomImage.name).ext}`;
-        req.files.roomImage.mv(`/room_images/${req.files.roomImage.name}`)
+        req.files.roomImage.mv(`public/room_images/${req.files.roomImage.name}`)
         .then(()=>{
 
             adminModel.updateOne({_id:user._id},
@@ -79,7 +79,7 @@ router.get("/view_rooms",(req,res)=>{
                 price:task.price,
                 description:task.description,
                 location:task.location,
-                FeaturedRoom:task.FeaturedRoom,
+              //  FeaturedRoom:task.FeaturedRoom,
                 roomImage:task.roomImage
                 
             }
@@ -103,7 +103,7 @@ router.get("/edit_rooms/:id",(req,res)=>{
 
     .then((task)=>{
 
-        const {_id,title,price,description,location,FeaturedRoom} = task;
+        const {_id,title,price,description,location,} = task;
 
         res.render("../views/room_data/updateRooms",{
 
@@ -112,7 +112,7 @@ router.get("/edit_rooms/:id",(req,res)=>{
             price,
             description,
             location,
-            FeaturedRoom
+           // FeaturedRoom
         });
     })
 
@@ -124,11 +124,11 @@ router.get("/edit_rooms/:id",(req,res)=>{
 router.put("/updateRooms/:id",(req,res)=>{
 
     const task = {
-        Title:req.body.title,
-        Description:req.body.description,
-        Price:req.body.price,
-        Location:req.body.location,
-        FeaturedRoom:req.body.ftrd_rm
+        title:req.body.title,
+        description:req.body.description,
+        price:req.body.price,
+        location:req.body.location,
+       // FeaturedRoom:req.body.ftrd_rm
     }
 
     adminModel.updateOne({_id:req.params.id},task)

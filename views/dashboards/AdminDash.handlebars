@@ -1,8 +1,13 @@
-<div class="welcome_message">
-        <h3>Welcome Admin</h3>
-        <h4>What would You like to do ?</h4>
-    </div>
-    <div class="admn_optns">
-        <a href="/room-listing/create_rooms" class="crt_rm" >Create Rooms <i class="fas fa-long-arrow-alt-right" style="padding-left: 0.5em; font-size:1.2em"></i></a>
-        <a href="/room-listing/view_rooms" class="del_rm" >View and Update Rooms <i class="fas fa-long-arrow-alt-right" style="padding-left: 0.5em; font-size:1.2em"></i></a>        
-    </div>
+<div class="registration-page">
+    <h4 class="welcome">WelCome  {{user.fname}} {{user.lname}} </h4> <br>
+   <h4 class="thank">Thank you {{user.fname}} to Create A room.</h4><br>
+   <p class="admin-info"> Here are some options Available ,you can View your Room and Edit the previous added room. </p>
+
+
+<div class="admin_options">
+    <a href="/room-listing/create_rooms" class="Create-link">Create More Rooms</i></a>
+
+    <a href="/room-listing/view_rooms" class="view-link">View and Update Rooms </i></a>
+</div>
+
+</div>

@@ -50,10 +50,6 @@ app.use((req,res,next)=>{
 })
 
 
-
-  
-
-
 //load controllers
 const generalController = require("./controllers/general");
 const roomController = require("./controllers/room");

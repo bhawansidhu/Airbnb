@@ -27,17 +27,15 @@
                 </div>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="Your-Profile">Host a Home</a></li>
+                    <li><a href="/dashboard">Host a Home</a></li>
                     <li><a href="/room-listing">Explore</a></li>
                     <li><a href="/room-listing/create_rooms" class="travelling_services">Airbnb Room Services </a></li>
-                    <li><a href="#About us">About Us</a></li>
-                    <li><a href="#help"> Help</a></li>
-                    <li><a href="#Feedback">Feedback</a></li>
-                  {{#if user }}
+                   
+                 {{#if user }}
                     <li><a href="/logout">Log Out</a></li>
 
                   {{else}}  
-                    <li><a href="/Login"></a>Log In</a></li>
+                    <li><a href="/Login" id="user_login">Log In</a></li>
                     <li><a href="/register" class="user_registration">SignUp</a></li>
 
                   {{/if}}
